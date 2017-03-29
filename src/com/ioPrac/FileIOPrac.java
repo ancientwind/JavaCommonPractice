@@ -10,7 +10,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import com.util.Util;
+import com.util.PrintUtil;
 
 public class FileIOPrac {
 
@@ -89,7 +89,7 @@ public class FileIOPrac {
 			paths = d.list();
 			
 			for (String str:paths)
-				Util.print(str);
+				PrintUtil.print(str);
 		}
 	}
 }

@@ -2,23 +2,24 @@ package com.arrayPrac;
 
 import java.util.Arrays;
 
-import com.util.Util;
+import com.util.PrintUtil;
 
 public class ArrayPrac {
 
 	public void printArray(int[] array) {
-		Util.print(Arrays.toString(array));
+		PrintUtil.print(Arrays.toString(array));
 	}
 	
 	public void printDeepArray(int[][] arrays) {
-		Util.print(Arrays.deepToString(arrays));
+		PrintUtil.print(Arrays.deepToString(arrays));
 	}
 	
 	public static int[] reverse(int[] array) {
 		int[] result = new int[array.length];
 		
-		for(int i = array.length - 1, j = 0; i >=0; i--,j++) 
-			result[j] = array[i];
+		for (int i = 0; i < array.length; i++) {
+			result[array.length - i - 1] = array[i];
+		}
 		
 		return result;
 	}
@@ -39,15 +40,15 @@ public class ArrayPrac {
 		 * test reverse
 		 */
 		int[] array = {3,6,1,6,2};
-		Util.beforeOper();
+		PrintUtil.beforeOper();
 		prac.printArray(array);
-		Util.afterOper();
+		PrintUtil.afterOper();
 		prac.printArray(prac.reverse(array));
 		
 		/**
 		 * sort
 		 */
-		Util.print("afte sort array: ");
+		PrintUtil.print("afte sort array: ");
 		Arrays.sort(array);
 		prac.printArray(array);
 	}

@@ -1,6 +1,6 @@
 package com.multithread;
 
-import com.util.Util;
+import com.util.PrintUtil;
 
 public class RunThreadMain {
 
@@ -11,8 +11,8 @@ public class RunThreadMain {
 		Double a = 3.51212;
 		Double b = 1004444.032434234;
 		Double result;
-		result = Util.multiply(a, b);
-		Util.print(result);
+		result = PrintUtil.multiply(a, b);
+		PrintUtil.print(result);
 	}
 	
 	public void runRunnableDemo() {

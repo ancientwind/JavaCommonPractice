@@ -1,17 +1,17 @@
 package com.charPrac;
 
-import com.util.Util;
+import com.util.PrintUtil;
 
 public class CharPrac {
 
 	public void basicOper(){
 		// Unicode
 		char uniChar = '\u032A';
-		Util.print(uniChar);
+		PrintUtil.print(uniChar);
 		
 		char c1 = 'a';
 		
-		Util.print("c1 is a letter? >> " + Character.isLetter(c1));
+		PrintUtil.print("c1 is a letter? >> " + Character.isLetter(c1));
 		
 	}
 	
@@ -39,9 +39,9 @@ public class CharPrac {
 		 */
 		char[] chars = { 'd', 'D', 'g', 'e'};
 		
-		Util.print(String.valueOf(chars));
+		PrintUtil.print(String.valueOf(chars));
 		prac.changeAllToUpper(chars);
-		Util.print(String.valueOf(chars));
+		PrintUtil.print(String.valueOf(chars));
 	}
 
 }

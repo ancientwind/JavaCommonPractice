@@ -1,6 +1,6 @@
 package com.regularExprPrac;
 
-import com.util.Util;
+import com.util.PrintUtil;
 
 /**
  * 
@@ -18,16 +18,16 @@ public class BasicStringReg {
 	
 	public static void main(String[] args) {
 		
-		Util.print(TEST.matches("\\w.*"));
+		PrintUtil.print(TEST.matches("\\w.*"));
 		
 		String[] splitStr = TEST.split("\\s+");
 		
 		for(String str:splitStr)
-			Util.print(str);
+			PrintUtil.print(str);
 		
-		Util.print(TEST.replaceAll("\\s+", "\t"));
+		PrintUtil.print(TEST.replaceAll("\\s+", "\t"));
 		
-		Util.print(BasicStringReg.removeWhitespace(TEST));
+		PrintUtil.print(BasicStringReg.removeWhitespace(TEST));
 	}
 
 	// Removes whitespace between a word character and . or ,

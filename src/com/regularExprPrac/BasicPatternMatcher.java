@@ -3,7 +3,7 @@ package com.regularExprPrac;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.util.Util;
+import com.util.PrintUtil;
 
 /**
  * 
@@ -26,14 +26,14 @@ public class BasicPatternMatcher {
 		Matcher matcher = pattern.matcher(TEST);
 		
 		while(matcher.find()){
-			Util.print("Start index: " + matcher.start());
-			Util.print("End index: " + matcher.end());
-			Util.print(matcher.group());
+			PrintUtil.print("Start index: " + matcher.start());
+			PrintUtil.print("End index: " + matcher.end());
+			PrintUtil.print(matcher.group());
 		}
 		
 		Pattern p_replace = Pattern.compile("\\s+");
 		Matcher m_replace = p_replace.matcher(TEST);
-		Util.print(m_replace.replaceFirst("\\*"));
+		PrintUtil.print(m_replace.replaceFirst("\\*"));
 	}
 
 }

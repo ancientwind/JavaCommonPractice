@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.util.Util;
+import com.util.PrintUtil;
 
 /**
  * The following example allows you to extract all valid links from a webpage. 
@@ -99,7 +99,7 @@ public class LinksGetter {
 		LinksGetter lg = new LinksGetter();
 		String url = "http://localhost:80";
 		List<String> links = lg.getLinks(url);
-		Util.print(links);
+		PrintUtil.print(links);
 	}
 
 }

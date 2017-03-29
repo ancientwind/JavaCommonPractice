@@ -1,6 +1,6 @@
 package com.stringTest;
 
-import com.util.Util;
+import com.util.PrintUtil;
 
 public class StringBasicPrac {
 
@@ -13,7 +13,7 @@ public class StringBasicPrac {
                 "%f, 整型变量的值为 " +
                 " %d, 字符串变量的值为 " +
                 " %s", f1, a1, s1);
-		Util.print(str);
+		PrintUtil.print(str);
 	}
 	
 	public static void main(String[] args) {

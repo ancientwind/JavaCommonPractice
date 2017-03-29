@@ -1,6 +1,6 @@
 package com.multithread;
 
-import com.util.Util;
+import com.util.PrintUtil;
 
 /**
  * Create a Thread by Implementing a Runnable.
@@ -26,10 +26,10 @@ public class RunnableDemo implements Runnable {
 	}
 
 	public void run() {
-		Util.print("Running: " + this.getThreadName());
+		PrintUtil.print("Running: " + this.getThreadName());
 		
 		for(int i = 4; i > 0; i--){
-			Util.print("Thread: " + this.getThreadName() + ", at " + i);
+			PrintUtil.print("Thread: " + this.getThreadName() + ", at " + i);
 			try {
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
@@ -37,14 +37,14 @@ public class RunnableDemo implements Runnable {
 			}
 		}
 		
-		Util.print("Thread: " + this.getThreadName() + " exiting.");
+		PrintUtil.print("Thread: " + this.getThreadName() + " exiting.");
 	}
 	
 	public void start() {
 		if(this.getThreadName() == null || this.getThreadName().length() == 0)
 			this.setThreadName("Thread-" + ++count );
 		
-		Util.print("Starting " + this.getThreadName());
+		PrintUtil.print("Starting " + this.getThreadName());
 		
 		if(t == null) {
 			t = new Thread(this, this.getThreadName());

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-import com.util.Util;
+import com.util.PrintUtil;
 
 public class InputPrac {
 
@@ -20,10 +20,10 @@ public class InputPrac {
 		BufferedReader buff = new BufferedReader(
 				new InputStreamReader(System.in));
 		
-		Util.print("Enter characters, 'q' to storp");
+		PrintUtil.print("Enter characters, 'q' to storp");
 		char ch;
 		while((ch = (char) buff.read()) != 'q'){ //or use buff.readLine()
-			Util.print(ch);
+			PrintUtil.print(ch);
 		}
 	}
 	
@@ -40,7 +40,7 @@ public class InputPrac {
 		//nextLine()可以获得空白
 		while(scan.hasNext()) {
 			String str_line = scan.nextLine();
-			Util.print(str_line);
+			PrintUtil.print(str_line);
 		}
 	}
 
