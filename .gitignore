@@ -1,2 +1,5 @@
 my.out
 /bin
+.idea/
+*.iml
+*.class
