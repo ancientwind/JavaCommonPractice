@@ -18,9 +18,9 @@ public class RunThreadMain {
 	public void runRunnableDemo() {
 		RunnableDemo rd1 = new RunnableDemo();
 		RunnableDemo rd2 = new RunnableDemo();
-		
+
 		rd1.start();
 		rd2.start();
-	}
 
+	}
 }

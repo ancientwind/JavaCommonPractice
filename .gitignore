@@ -3,3 +3,4 @@ my.out
 .idea/
 *.iml
 *.class
+out/
