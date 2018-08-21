@@ -3,7 +3,24 @@ package com.util;
 
 public class PrintUtil {
 
-	public static void print(Object st) {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String name;
+
+    public PrintUtil() {
+    }
+
+    public PrintUtil(String name) {
+        this.name = name;
+    }
+
+    public static void print(Object st) {
 		System.out.println(st);
 	}
 	

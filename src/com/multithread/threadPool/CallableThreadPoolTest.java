@@ -11,7 +11,7 @@ public class CallableThreadPoolTest {
         int numWorkers = 3;
 
         ExecutorService pool = Executors.newCachedThreadPool();
-        CallableWorkerThread workers[] = new CallableWorkerThread[numWorkers];
+        CallableWorkerThread[] workers = new CallableWorkerThread[numWorkers];
         Future[] futures = new Future[numWorkers];
 
         for (int i = 0; i < numWorkers; ++i) {
