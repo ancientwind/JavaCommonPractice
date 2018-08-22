@@ -2,8 +2,11 @@ package com.java8;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 /**
@@ -21,6 +24,24 @@ public class StreamsPrac {
         stringList.add("phoneb");
         stringList.add("phonec");
         stringList.add("penc");
+    }
+
+    public void creation() {
+        Stream<String> streamEmpty = Stream.empty(); // to avoid returning null
+
+        Collection<String> collection = Arrays.asList("ab", "cd", "ef");
+        Stream<String> stream1 = collection.stream();
+
+        Stream<String> stream2 = Stream.of("sd", "iw", "me");
+
+        Stream<String> stream3 = Stream.<String>builder().add("tom").add("saul").add("jimmy").build();
+
+        Stream<String> stream4 = Stream.generate(() -> "repeat").limit(5);
+
+        IntStream intStream = IntStream.range(1,5); // 1~4
+        System.out.println(intStream.count());
+        LongStream longStream = LongStream.rangeClosed(1,5); // include 5
+        System.out.println(longStream.count());
     }
 
     public void fromString() {
@@ -73,7 +94,8 @@ public class StreamsPrac {
         StreamsPrac sp = new StreamsPrac();
         sp.init();
 //        sp.fromString();
-        sp.operation();
+//        sp.operation();
+        sp.creation();
     }
 
     private class Detail {

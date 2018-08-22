@@ -1,6 +1,5 @@
 package com.reflection;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import com.util.PrintUtil;
 
 import java.lang.reflect.Constructor;
