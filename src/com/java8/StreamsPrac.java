@@ -1,9 +1,6 @@
 package com.java8;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -90,12 +87,23 @@ public class StreamsPrac {
         System.out.println(count);
     }
 
+    public void testOptional() {
+        Optional<List<String>> detailOptional = Optional.ofNullable(new Detail().getParts());
+        System.out.println(detailOptional.isPresent());
+
+        String stringOptional = detailOptional
+                .map(stringList -> stringList.get(0))
+                .orElse("empty");
+        System.out.println(stringOptional);
+    }
+
     public static void main(String[] args) {
         StreamsPrac sp = new StreamsPrac();
         sp.init();
 //        sp.fromString();
 //        sp.operation();
-        sp.creation();
+//        sp.creation();
+        sp.testOptional();
     }
 
     private class Detail {
@@ -104,9 +112,16 @@ public class StreamsPrac {
             return parts;
         }
 
-        private List<String> parts = new ArrayList<>();
+        private List<String> parts;
 
         public Detail() {
+
+        }
+
+        public void init() {
+            if (parts == null) {
+                parts = new ArrayList<>();
+            }
             this.parts.add("apple");
             this.parts.add("huawei");
             this.parts.add("vivo");
