@@ -1,14 +1,7 @@
 package com.ioPrac;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.Buffer;
 
 import com.util.PrintUtil;
 
@@ -24,8 +17,8 @@ public class FileIOPrac {
 
 	//inputStream -> read bytes from source
 	//Reader -> read char or String from source; Reader has readLine(), but stream hasn't
-	//ÓÃ BufferedReader °ü×°ËùÓÐÆä read() ²Ù×÷¿ÉÄÜ¿ªÏúºÜ¸ßµÄ Reader£¨Èç FileReader ºÍInputStreamReader£©
-	//Ê¹ÓÃBufferedReader¿ÉÒÔÖ¸¶¨»º³åÇøµÄ´óÐ¡£¬»òÕß¿ÉÊ¹ÓÃÄ¬ÈÏµÄ´óÐ¡¡£´ó¶àÊýÇé¿öÏÂ£¬Ä¬ÈÏÖµ¾Í×ã¹»´óÁË; Ìá¸ß¶ÁÐ´Ð§ÂÊ¡£
+	//ï¿½ï¿½ BufferedReader ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ read() ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½ï¿½Ü¸ßµï¿½ Readerï¿½ï¿½ï¿½ï¿½ FileReader ï¿½ï¿½InputStreamReaderï¿½ï¿½
+	//Ê¹ï¿½ï¿½BufferedReaderï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½Ê¹ï¿½ï¿½Ä¬ï¿½ÏµÄ´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½Ä¬ï¿½ï¿½Öµï¿½ï¿½ï¿½ã¹»ï¿½ï¿½ï¿½ï¿½; ï¿½ï¿½ß¶ï¿½Ð´Ð§ï¿½Ê¡ï¿½
 	
 	public void copyFile(String input, String output) throws IOException {
 		FileInputStream in = null;
@@ -74,7 +67,23 @@ public class FileIOPrac {
 			
 		}
 	}
-	
+
+	public String readFileFromClasspath(String fileName) {
+
+		StringBuilder text = new StringBuilder();
+		try(BufferedReader bufferedReader = new BufferedReader(
+				new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream(fileName)))
+		) {
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				text.append(line).append("\n");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return text.toString();
+	}
+
 	//mkdirs() method creates both a directory and all the parents of the directory.
 	public static void createDirs(String path) {
 		File d = new File(path);
