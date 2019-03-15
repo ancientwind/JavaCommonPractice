@@ -20,7 +20,7 @@ public class CallableThreadPoolTest {
         }
         for (int i = 0; i < numWorkers; ++i) {
             try {
-                System.out.println(futures[i].get() + " ended");
+                System.out.println(futures[i].get() + " and task is done? " + futures[i].isDone());
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             } catch (ExecutionException ex) {
