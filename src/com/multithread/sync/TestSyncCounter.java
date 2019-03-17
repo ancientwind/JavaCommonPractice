@@ -6,6 +6,22 @@ public class TestSyncCounter {
         tryJoin();
     }
 
+    private void trySyncMethod() {
+        synchronized (this) {
+            System.out.println("syc block");
+        }
+
+        String test = "hello sync";
+        synchronized (test) {
+            System.out.println(test + Thread.currentThread());
+        }
+    }
+
+    private synchronized void sayHello() {
+        System.out.println("Hello");
+    }
+
+
     private static void tryJoin() {
         Thread increment = new Thread(() -> {
             for (int i = 0; i < 5; i++) {
@@ -26,6 +42,10 @@ public class TestSyncCounter {
 
         increment.start();
         try {
+            /**
+             * thread increment will join the main thread,
+             * and main thread will wait increment to terminated, then run
+             */
             increment.join();
         } catch (InterruptedException e) {
             e.printStackTrace();

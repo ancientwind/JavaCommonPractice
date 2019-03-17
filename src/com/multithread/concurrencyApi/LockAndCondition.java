@@ -1,4 +1,4 @@
-package com.multithread.reentranckLock;
+package com.multithread.concurrencyApi;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

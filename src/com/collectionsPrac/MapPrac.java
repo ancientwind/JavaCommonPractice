@@ -14,19 +14,15 @@ public class MapPrac<K,V> {
 		return this.map;
 	}
 	
-	public void printMapByKeySet() {
-		Iterator it = this.map.keySet().iterator();
+	public void printMapByKeySet(Map<K,V> map ) {
+		Iterator it = map.keySet().iterator();
 		while(it.hasNext()) {
 			Object key = it.next();
 			System.out.println("key is: " + key 
-					+ " ; value is: " + this.map.get(key));
+					+ " ; value is: " + map.get(key));
 		}
 	}
-	
-	/**
-	 * ap.Entry是Map声明的一个内部接口，此接口为泛型，定义为Entry。
-	 * 它表示Map中的一个实体（一个key-value对）。接口中有getKey(),getValue方法。
-	 */
+
 	public void printMapByEntrySet() {
 		Set<Map.Entry<K,V>> entrySet = this.map.entrySet();
 		Iterator it = entrySet.iterator();
@@ -44,10 +40,20 @@ public class MapPrac<K,V> {
 			System.out.print(it.next());
 		}
 	}
+
+	public void mapOperation() {
+		Map<Integer, String> map = new HashMap<>();
+		map.put(100, "hello");
+		map.put(101, "hello1");
+		map.put(102, "hello3");
+		map.replace(101, "hello 101");
+		map.putIfAbsent(102, "hello 102");
+		this.printMapByKeySet((Map<K, V>) map);
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		new MapPrac<>().mapOperation();
 	}
 	
 	

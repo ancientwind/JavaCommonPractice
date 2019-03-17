@@ -1,11 +1,6 @@
 package com.collectionsPrac;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Vector;
+import java.util.*;
 
 import com.util.PrintUtil;
 
@@ -53,12 +48,12 @@ public class ListPrac<T> {
 		
 		this.printList(listB);
 		
-        //ListIteratorÔÚIterator»ù´¡ÉÏÌí¼ÓÁËadd(),previous()ºÍhasPrevious()·½·¨
+        //ListIteratorï¿½ï¿½Iteratorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½add(),previous()ï¿½ï¿½hasPrevious()ï¿½ï¿½ï¿½ï¿½
 		ListIterator<String> listIter = list.listIterator();
 		
 		Iterator<String> listBIter = listB.iterator();
 		
-        //b¹é²¢Èëaµ±ÖÐ£¬¼ä¸ô½»²æµÄ²åÈëbÖÐµÄÔªËØ
+        //bï¿½é²¢ï¿½ï¿½aï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½bï¿½Ðµï¿½Ôªï¿½ï¿½
 		while(listBIter.hasNext()){
 			
 			if(listIter.hasNext()) {
@@ -105,7 +100,7 @@ public class ListPrac<T> {
 	}
 	
 	/**
-	 * use stack to transport Ê®½øÖÆ10 number to D number
+	 * use stack to transport Ê®ï¿½ï¿½ï¿½ï¿½10 number to D number
 	 * 
 	 * @param n
 	 * @param D
@@ -147,7 +142,23 @@ public class ListPrac<T> {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ListPrac prac = new ListPrac();
-		prac.pracTransport10ToD();
+//		prac.pracTransport10ToD();
+//		prac.testForeachModification();
+
+	}
+
+	private void testForeachModification() {
+		List<String> stringList = new ArrayList<>();
+		stringList.add("abc");
+		stringList.add("efg");
+		stringList.stream().forEach(System.out::println);
+
+		for (String string : stringList) {
+			if (string.equals("abc")) {
+				stringList.remove(string); // this should throw an ConcurrentModificationException
+			}
+		}
+		stringList.stream().forEach(System.out::println);
 	}
 
 }
@@ -187,3 +198,4 @@ class QueueLL {
 		return this.linked.getFirst();
 	}
 }
+
