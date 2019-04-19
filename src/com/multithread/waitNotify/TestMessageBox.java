@@ -36,8 +36,8 @@ public class TestMessageBox {
             }
         };
 
-        consumerThread1.start();
-        consumerThread2.start();
+//        consumerThread1.start();
+//        consumerThread2.start();
         producerThread.start();
     }
 }

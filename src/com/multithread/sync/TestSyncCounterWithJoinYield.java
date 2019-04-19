@@ -1,9 +1,9 @@
 package com.multithread.sync;
 
-public class TestSyncCounter {
+public class TestSyncCounterWithJoinYield {
 
     public static void main(String[] args) {
-        tryJoin();
+        tryYield();
     }
 
     private void trySyncMethod() {
@@ -53,7 +53,9 @@ public class TestSyncCounter {
         decrement.start();
     }
 
-
+    /**
+     * yield could not guarantee the wake up priority
+     */
     private static void tryYield() {
         Thread increment = new Thread(() -> {
             for (int i = 0; i < 5; i++) {

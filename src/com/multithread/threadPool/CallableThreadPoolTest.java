@@ -1,9 +1,6 @@
 package com.multithread.threadPool;
 
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 public class CallableThreadPoolTest {
 
@@ -20,11 +17,16 @@ public class CallableThreadPoolTest {
         }
         for (int i = 0; i < numWorkers; ++i) {
             try {
-                System.out.println(futures[i].get() + " and task is done? " + futures[i].isDone());
+                /**
+                 * or use isDone() to check whether Callable task is finished or not
+                 */
+                System.out.println(futures[i].get(100, TimeUnit.MILLISECONDS) + " and task is done? " + futures[i].isDone());
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             } catch (ExecutionException ex) {
                 ex.printStackTrace();
+            } catch (TimeoutException e) {
+                e.printStackTrace();
             }
         }
     }

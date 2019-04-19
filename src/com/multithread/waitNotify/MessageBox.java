@@ -1,6 +1,8 @@
 package com.multithread.waitNotify;
 
 import java.time.Instant;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MessageBox {
 

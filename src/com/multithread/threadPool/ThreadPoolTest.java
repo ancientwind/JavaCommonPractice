@@ -37,7 +37,8 @@ public class ThreadPoolTest {
             }
         };
 
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 5, 5, TimeUnit.SECONDS, worksQueue, executionHandler);
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 5,
+                5, TimeUnit.SECONDS, worksQueue, executionHandler);
         executor.execute(new WorkerThread(3));
         executor.shutdown();
     }
