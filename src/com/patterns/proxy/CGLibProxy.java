@@ -1,4 +1,4 @@
-package com.patterns;
+package com.patterns.proxy;
 
 import net.sf.cglib.proxy.Enhancer;
 

@@ -1,4 +1,4 @@
-package com.patterns;
+package com.patterns.proxy;
 
 /**
  * @author 212331901
