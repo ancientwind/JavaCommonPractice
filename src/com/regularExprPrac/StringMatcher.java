@@ -46,4 +46,16 @@ public class StringMatcher {
     	return s.matches("[^\\d]*[12]?[\\d]{1,2}[^\\d]*");
     	//            return s.matches("[^0-9]*[12]?[0-9]{1,2}[^0-9]*");
     }
+
+    public static boolean isEmailAddress(String s) {
+        return s.matches("^[\\w$]+@\\w+\\.\\w{2,6}$");
+    }
+
+    public static void main(String[] args) {
+        System.out.println(StringMatcher.isEmailAddress("sd%fsa_asd23@ad.asdfa"));
+        System.out.println(StringMatcher.isEmailAddress("$sdfsa_asd23@126.asdfa"));
+        System.out.println(StringMatcher.isEmailAddress("23sdfsa_asd23@ad.asdfasdfa"));
+        System.out.println(StringMatcher.isEmailAddress("23sdfsa_asd23@ad.cn"));
+        System.out.println(StringMatcher.isEmailAddress("23sdfsa_asd23@a*d.cn"));
+    }
 }

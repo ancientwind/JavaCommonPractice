@@ -19,14 +19,16 @@ import com.util.PrintUtil;
 public class BasicPatternMatcher {
 
 	public static final String TEST = "This is   my example.";
+	public static Pattern pattern = Pattern.compile("^[a-z]\\w+", Pattern.CASE_INSENSITIVE);
+
 
 	public static void main(String[] args) {
 
-		Pattern pattern = Pattern.compile("\\w+", Pattern.CASE_INSENSITIVE);
 		Matcher matcher = pattern.matcher(TEST);
 		
 		while(matcher.find()){
 			PrintUtil.print("Start index: " + matcher.start());
+			PrintUtil.print(matcher.group(0));
 			PrintUtil.print("End index: " + matcher.end());
 			PrintUtil.print(matcher.group());
 		}
