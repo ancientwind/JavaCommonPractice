@@ -5,7 +5,7 @@ import java.util.concurrent.*;
 public class CallableThreadPoolTest {
 
     public static void main(String[] args) {
-        int numWorkers = 3;
+        int numWorkers = 300;
 
         ExecutorService pool = Executors.newCachedThreadPool();
         CallableWorkerThread[] workers = new CallableWorkerThread[numWorkers];
@@ -20,7 +20,11 @@ public class CallableThreadPoolTest {
                 /**
                  * or use isDone() to check whether Callable task is finished or not
                  */
-                System.out.println(futures[i].get(100, TimeUnit.MILLISECONDS) + " and task is done? " + futures[i].isDone());
+                if (i == 288) {
+                    futures[i].cancel(true);
+                    System.out.println("future-" + i + " is isCancelled? " + futures[i].isCancelled());
+                }
+                System.out.println(futures[i].get(500, TimeUnit.MILLISECONDS) + " and task is done? " + futures[i].isDone());
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             } catch (ExecutionException ex) {
