@@ -13,7 +13,7 @@ public class LRUCache {
     public LRUCache(int i) {
         currentSize = 0;
         cacheSize = i;
-        nodes = new Hashtable<Object, Entry>(i);//缓存容器
+        nodes = new Hashtable<>(i);//缓存容器
     }
 
     /**
