@@ -49,6 +49,7 @@ public class IntializationTest2 {
     }
 
     public static void main(String[] args) {
+        new IntializationTest2();
         IntializationTest2.init();
     }
 

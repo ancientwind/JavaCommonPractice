@@ -17,7 +17,7 @@ public class InitializationTest1 {
     // Static initialization block:
     // Runs once (when the class is initialized)
     static {
-        System.out.println("Static initalization.");
+        System.out.println("Static initialization.");
         staticVariable = 5;
         System.out.println(staticVariable);
     }
