@@ -3,6 +3,9 @@ package com.java8;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
+import java.time.zone.ZoneOffsetTransitionRule;
+import java.util.Arrays;
+import java.util.TimeZone;
 
 /**
  * @author 212331901
@@ -123,6 +126,14 @@ public class LocalDateTimeUtils {
         return input.isBefore(LocalDate.now().plusDays(90));
     }
 
+    public static void timezone() {
+        System.out.println(Arrays.toString(TimeZone.getAvailableIDs()));
+        TimeZone.setDefault(TimeZone.getTimeZone(ZoneId.of("Asia/Shanghai")));
+        System.out.println("system timezone: " + ZoneId.systemDefault());
+        System.out.println(ZonedDateTime.now());
+        System.out.println(Instant.now());
+    }
+
     public static void main(String[] args) {
         LocalDateTimeUtils utils = new LocalDateTimeUtils();
 //        utils.commonLocalDate();
@@ -131,6 +142,7 @@ public class LocalDateTimeUtils {
 //        utils.commonInstantAndDuration();
 //        utils.utilityOfEnums();
 //        utils.timeAdujstAndBuild();
-        utils.fromStringAndFormat(null);
+//        utils.fromStringAndFormat(null);
+        timezone();
     }
 }
