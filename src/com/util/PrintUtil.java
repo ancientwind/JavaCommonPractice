@@ -13,6 +13,9 @@ public class PrintUtil {
 
     private String name;
 
+    private Character character;
+    private Character[] characters;
+
     public PrintUtil() {
     }
 

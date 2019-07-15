@@ -42,5 +42,13 @@ public class Reflection {
         field.setAccessible(true);
         field.set(printUtil, "saul");
         System.out.println(printUtil.getName());
+
+        Field field1 = cls.getDeclaredField("character");
+        System.out.println(field1.getName());
+        System.out.println(field1.getType());
+
+        Field field2 = cls.getDeclaredField("characters");
+        System.out.println(field2.getName());
+        System.out.println(field2.getType());
     }
 }
