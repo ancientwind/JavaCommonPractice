@@ -1,6 +1,7 @@
 package com.i18n;
 
 import javax.xml.bind.DatatypeConverter;
+import javax.xml.bind.SchemaOutputResolver;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
@@ -11,12 +12,14 @@ import java.nio.charset.StandardCharsets;
  */
 public class CharEncodeAndDecode {
     public static void main(String[] args) {
-        String test = "a";
+        String test = "ééé";
         try {
-            byte[] bytes = test.getBytes("UTF-8");
+            byte[] bytes = test.getBytes(StandardCharsets.UTF_8);
             System.out.println((new BigInteger(1, bytes).toString(2)));
+            System.out.println(test);
             System.out.println((new BigInteger(1, bytes).toString(16)));
             System.out.println(new String(bytes, StandardCharsets.ISO_8859_1));
+            System.out.println((new BigInteger(1, new String(bytes, StandardCharsets.ISO_8859_1).getBytes(StandardCharsets.ISO_8859_1)).toString(16)));
             System.out.println(System.currentTimeMillis());
             System.out.println(Long.parseLong("F", 16));
             System.out.println(Integer.toBinaryString(128));
@@ -28,10 +31,11 @@ public class CharEncodeAndDecode {
             System.out.println(new BigInteger("1100001110101000", 2).toString(16));
             System.out.println(escapeNonAscii(test));
 
-            String ehex = "c3a8";
+            String ehex = "c3a9";
             System.out.println(new String(DatatypeConverter.parseHexBinary(ehex), "UTF-8"));
-            String ehex2 = "efbf83efbea7";
-            System.out.println(new String(DatatypeConverter.parseHexBinary(ehex2), StandardCharsets.US_ASCII));
+            String ehex2 = "c383c2a9c383c2a9c383c2a9";
+            System.out.println(new String(DatatypeConverter.parseHexBinary(ehex2), StandardCharsets.ISO_8859_1));
+
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
